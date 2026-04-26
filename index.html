@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyPulse • Weather Forecast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen text-white transition-all duration-500" id="body">
+    <div class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-cloud-sun text-4xl text-sky-400"></i>
+                <h1 class="text-4xl font-bold tracking-tight">SkyPulse</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="relative">
+                    <input type="text" id="city-input" 
+                           class="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl px-6 py-3 w-80 focus:outline-none focus:border-sky-400 placeholder-white/60"
+                           placeholder="Search any city...">
+                    <button onclick="searchCity()" 
+                            class="absolute right-2 top-1/2 -translate-y-1/2 bg-sky-500 hover:bg-sky-600 px-6 py-2 rounded-xl transition">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+                <button onclick="getCurrentLocation()" 
+                        class="bg-white/10 hover:bg-white/20 backdrop-blur-md px-6 py-3 rounded-2xl flex items-center gap-2 transition">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>My Location</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <!-- Current Weather -->
+            <div class="lg:col-span-5 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 shadow-2xl" id="current-weather">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <p class="text-sm opacity-70" id="city-name">Loading...</p>
+                        <p class="text-6xl font-light mt-2" id="temperature">--°C</p>
+                        <p class="text-2xl mt-1 capitalize" id="description">--</p>
+                    </div>
+                    <img id="weather-icon" src="" alt="weather" class="w-32 h-32 -mt-4">
+                </div>
+                
+                <div class="grid grid-cols-3 gap-4 mt-10 text-center">
+                    <div>
+                        <p class="text-xs opacity-60">Feels like</p>
+                        <p class="text-2xl font-medium" id="feels-like">--°C</p>
+                    </div>
+                    <div>
+                        <p class="text-xs opacity-60">Humidity</p>
+                        <p class="text-2xl font-medium" id="humidity">--%</p>
+                    </div>
+                    <div>
+                        <p class="text-xs opacity-60">Wind</p>
+                        <p class="text-2xl font-medium" id="wind">-- km/h</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hourly Forecast -->
+            <div class="lg:col-span-7 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
+                <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-clock"></i> Hourly Forecast
+                </h2>
+                <div class="flex gap-6 overflow-x-auto pb-4 snap-x" id="hourly-forecast">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+
+            <!-- 7-Day Forecast -->
+            <div class="lg:col-span-12 bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8">
+                <h2 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-days"></i> 7-Day Forecast
+                </h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4" id="daily-forecast">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+        </div>
+
+        <footer class="text-center text-white/50 text-sm mt-12">
+            
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

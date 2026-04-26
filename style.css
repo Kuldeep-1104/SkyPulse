@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Inter', system_ui, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a, #1e2937);
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+}
+
+.hour-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hour-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.forecast-card {
+    transition: all 0.3s ease;
+}
+
+.forecast-card:hover {
+    transform: scale(1.05);
+}
+
+/* Dynamic backgrounds (added via JS) */
+.sunny { background: linear-gradient(135deg, #f59e0b, #3b82f6); }
+.cloudy { background: linear-gradient(135deg, #64748b, #334155); }
+.rainy { background: linear-gradient(135deg, #1e40af, #0f172a); }
+.clear { background: linear-gradient(135deg, #0ea5e9, #1e3a8a); }
