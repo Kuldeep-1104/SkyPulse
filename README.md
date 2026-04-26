@@ -68,12 +68,6 @@ const apiKey = "YOUR_API_KEY";
 
 ---
 
-##  Screenshots
-
-*(Add your project screenshots here for better presentation)*
-
----
-
 ##  Use Case
 
 * Users can quickly check weather conditions for any city
